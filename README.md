@@ -91,3 +91,120 @@ sudo service apache2 restart
 ![Captura de pantalla de 2025-05-13 12-55-09](https://github.com/user-attachments/assets/757bae6b-17a6-4df1-8287-8eafc256ace9)
 
 ![Captura de pantalla de 2025-05-13 12-55-37](https://github.com/user-attachments/assets/1519013a-8593-4b0b-b52a-61d6488e817b)
+
+
+# 3 Guía Instalación de apache2, mysql y algunas librerías en el contenidor
+## 
+
+1. Actualización de la máquina.
+```console
+sudo apt update
+```
+```console
+sudo apt upgrade
+```
+
+2. Instalación del servidor web `apache2`.
+```console
+sudo apt install -y apache2
+```
+
+3. Instalación del servidor de bases de datos `mysql-server`.
+```console
+sudo apt install -y mysql-server
+```
+
+4. Instalación de algunas librerías de `php`, el lenguaje principal que utilizan las aplicaciones.
+```console
+sudo apt install -y php libapache2-mod-php
+```
+```console
+sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+```
+
+5. Reiniciamos el servidor apache2
+```console
+sudo systemctl restart apache2
+```
+
+## Configuración de MySQL
+### Accedim a la consola de MySQL
+Des d'un terminal on siguem `root` hem d'executar la següent comanda:
+```console
+sudo mysql
+```
+
+### Creación de la base de datos:
+Un cop dins la consola de MySQL executem les comandes per a crear la base de dades. En aquest cas estem creant una base de dades amb el nom `bbdd`.
+
+```console
+CREATE DATABASE bbdd;
+```
+
+### Creación de un usuario
+Tingueu en compte que s'haurà d'identificar la IP des de la qual s'accedirà a la base de dades, en aquest cas, `localhost`.
+
+```console
+CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```
+
+### Damos privilegios al usuario:
+```console
+GRANT ALL ON bbdd.* to 'usuario'@'localhost';
+```
+
+### Salimos de la base de datos
+```console
+exit
+```
+## Descargamos los archivos de la aplicación web
+Vamos al directorio `/var/www/html` y descomprimimos allí los archivos de la aplicación web, debe sustituir `app-web.zip` por el nombre de su archivo que ha descargado con la aplicación web y el nombre de la carpeta `app-web` por la carpeta que le ha creado, si su instalación en linux está en un idioma modifique el pedido para adaptarlo a sus necesidades.
+
+```console
+sudo cp ~/Baixades/app-web.zip /var/www/html
+```
+Vaya al directorio `/var/www/html`
+```console
+cd /var/www/html
+```
+Descomprimir el archivo que ha descargado
+```console
+sudo unzip app-web.zip
+```
+Copie los archivos en la carpeta `/var/www/html`, modifique `app-web` por el nombre del directorio donde se ha descomprimido su archivo.
+```console
+sudo cp -R app-web/. /var/www/html
+```
+Eliminamos la carpeta creada cuando hemos hecho l'`unzip`
+```console
+sudo rm -rf app-web/
+```
+
+## Eliminamos el archivo `index.html` del `apache2`
+```console
+sudo rm -rf /var/www/html/index.html
+```
+
+## Aplicación de permisos en nuestras aplicaciones web
+Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html`, apliquem els següents permisos al directori `/var/www/html`
+
+```console
+cd /var/www/html
+```
+```console
+sudo chmod -R 775 .
+```
+```console
+sudo chown -R usuario:www-data .
+```
+## Accedemos al navegador para ver que todo funciona
+Poseu la direcció http://localhost al navegador web i configureu la cloud.
+
+Si todo ha ido bien y ha seguido el manual le aparecerá el instalador de la aplicación web que ha descargado y le pedirá crear un usuario admin y la información de la base de datos.
+
+La información que debe poner (si no ha modificado la información del manual) es la siguiente:
+
+* **usuari:** usuario
+* **contrasenya:** password
+* **base de dades:** bbdd
+* **domini:** localhost
