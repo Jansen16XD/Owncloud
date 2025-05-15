@@ -1,6 +1,7 @@
 # Owncloud
 # 1 
 Para llegar a este paso, lo primero que hay que hacer es crearse un nuevo escritorio.
+
 ![image](https://github.com/user-attachments/assets/05087909-bcf6-4dcb-a652-d59c6b1bb12f)
 
 ![Captura de pantalla de 2025-05-13 12-55-50](https://github.com/user-attachments/assets/ab5e09f0-25f9-4d6e-b60a-43bdd3fd74ba)
