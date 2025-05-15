@@ -22,8 +22,7 @@ Una vez lo hemos creado, podemos ver que opciones tenemos para abrir nuestro esc
 
 ![image](https://github.com/user-attachments/assets/afbbfa89-d579-4fb6-ad42-cd95db73501d)
 
-# 2 
-# Instalacion de OwnCloud
+# 2 Instalacion de OwnCloud
 
 1. Instalación de dependencias y repositorio PPA
 ```console
@@ -220,4 +219,46 @@ La información que debe poner (si no ha modificado la información del manual) 
 
 ![image](https://github.com/user-attachments/assets/48ee5244-56fb-48d5-bbf7-da08f53e68a4)
 
+# 5 Creación de usuarios:
+
+
+Para crear usuarios le damos a nuestro usuario, despues elejimos la opcion ''users''.
+
+![image](https://github.com/user-attachments/assets/94f6a8eb-2e49-4ef6-a539-4cd81d38d0c6)
+
+
+Aquí es donde creamos a los usuarios. Para crear un usuario ponemos el nombre del usuario, y un correo electrónico y finalmente le damos a ''Create''
+
+![image](https://github.com/user-attachments/assets/86af2083-27e8-4aef-b285-0a733e6a470e)
+
+![image](https://github.com/user-attachments/assets/183e47a1-4f79-42be-8763-ccc61c769512)
+
+# 6 Asignación de roles y permisos:
+
+El administrador puede hacerlo todo: puede compartir cosas con quien quiera, puede borrar cualquier usuario y tiene el control total. Luego están los editores, que sólo pueden tocar los archivos, carpetas y PDF, pero no pueden cambiar nada de los usuarios ni configurar nada importante, esto sólo lo hace admin. Y por último, los visualizadores sólo pueden mirar. Pueden abrir los PDF y ver los archivos, pero no pueden editar nada ni tocar las carpetas.
+
+![image](https://github.com/user-attachments/assets/c7e1e284-2f2f-4cdd-b810-3e910f796066)
+
+# 7 
+
+Escoji una carpeta a lazar y me fui al apartado de compartidos para hacer lo siguiente
+
+![image](https://github.com/user-attachments/assets/f8a89cef-8c77-4550-824c-4c7f3bdd6591)
+
+Eleji crear un link publico con los siguientes datos:
+
+![image](https://github.com/user-attachments/assets/7c9ce9c4-03dd-4fa5-a402-1dfad551b288)
+
+![image](https://github.com/user-attachments/assets/d4b443c2-b05f-453a-81a5-b0b13e4adecb)
+
+Y cuando quisiera, podria canviar cuando caducaria
+
+
+![image](https://github.com/user-attachments/assets/f743ae4d-06cd-4556-ae34-cc812ff275c1)
+
+![image](https://github.com/user-attachments/assets/570b428c-81bc-45cd-880f-24913d23c538)
+
+# 8 
+
+No gracias ;)
 
