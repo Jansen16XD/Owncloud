@@ -208,3 +208,16 @@ La información que debe poner (si no ha modificado la información del manual) 
 * **contrasenya:** password
 * **base de dades:** bbdd
 * **domini:** localhost
+
+# 4 Realizar pruebas básicas para verificar el correcto funcionamiento de ownCloud:
+
+
+![image](https://github.com/user-attachments/assets/0a843c44-e8aa-46e6-9f92-f03f5bdb3540)
+
+![image](https://github.com/user-attachments/assets/99369a70-0fc4-4f29-b90f-cb6fa0070be1)
+
+![image](https://github.com/user-attachments/assets/05dacb7c-da93-4cab-ab7f-ca8c3ddffa73)
+
+![image](https://github.com/user-attachments/assets/48ee5244-56fb-48d5-bbf7-da08f53e68a4)
+
+
