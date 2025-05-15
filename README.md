@@ -22,78 +22,53 @@ Una vez lo hemos creado, podemos ver que opciones tenemos para abrir nuestro esc
 
 ![image](https://github.com/user-attachments/assets/afbbfa89-d579-4fb6-ad42-cd95db73501d)
 
+# 2 
+# Instalacion de OwnCloud
 
-# 2 Instalacion de la version 7.4 de Php a UBuntu
-
-# Instal·lació i configuració d'aplicacions web
-
-Per instal·lar una aplicació web hem de baixar el seu codi font i portar-lo al directori arrel del nostre servidor d'aplicacions, en el nostre cas, `apache2`. Quan instal·lem `apache2` es crea una carpeta a `/var/www/html` on, per defecte, el servidor web utilitza com a directori arrel.
-
-Llavors, si portem la nostra aplicació al directori `/var/www/html` tindrem accés a la nostra aplicació mitjaçant l'adreça `http://localhost`.
-
-## Instal·lació d'apache2, mysql i algunes llibreries al contenidor
-
-1. Actualització de la màquina.
+1. Instalación de dependencias y repositorio PPA
+```console
+sudo apt install software-properties-common -y
+```
+```console
+LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
+```
 ```console
 sudo apt update
 ```
-```console
-sudo apt upgrade
-```
 
-2. Instal·lació del servidor web `apache2`.
-```console
-sudo apt install -y apache2
-```
-
-3. Instal·lació del servidor de bases de dades `mysql-server`.
-```console
-sudo apt install -y mysql-server
-```
-
-4. Instal·lació d'algunes llibreries de `php`, el llenguatge principal que utilitzen les aplicacions.
-```console
-sudo apt install -y php libapache2-mod-php
-```
-```console
-sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
-```
-
-5. Reiniciem el servidor apache2
-```console
-sudo systemctl restart apache2
-```
-
-## Configuració de MySQL
-### Accedim a la consola de MySQL
-Des d'un terminal on siguem `root` hem d'executar la següent comanda:
-```console
-sudo mysql
-```
-
-### Creació de la base de dades:
-Un cop dins la consola de MySQL executem les comandes per a crear la base de dades. En aquest cas estem creant una base de dades amb el nom `bbdd`.
+2. Instalación de PHP 7.4 y extensiones necesarias
 
 ```console
-CREATE DATABASE bbdd;
+sudo apt install php7.4 -y
+```
+```console
+sudo apt install -y php libapache2-mod-php7.4
+```
+```console
+sudo apt install -y php7.4-fpm php7.4-common php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-gd php7.4-xml php7.4-intl php7.4-mysql php7.4-cli php7.4-ldap php7.4-zip php7.4-curl
 ```
 
-### Creació d'un usuari
-Tingueu en compte que s'haurà d'identificar la IP des de la qual s'accedirà a la base de dades, en aquest cas, `localhost`.
+3. Selección de la versión de PHP
+```console
+sudo update-alternatives --config php
+```
+
+4. Activación de módulos necesarios de Apache2
 
 ```console
-CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+sudo a2enmod proxy_fcgi setenvif
+```
+```console
+sudo a2enconf php7.4-fpm
 ```
 
-### Donem privilegis a l'usuari:
+5. Reinicio del servidor Apache2
 ```console
-GRANT ALL ON bbdd.* to 'usuario'@'localhost';
+sudo service apache2 restart
 ```
 
-### Sortim de la base de dades
-```console
-exit
-```
+# Instalación y configuración de Apache2, MySQL y librerías PHP
+
 
 ![Captura de pantalla de 2025-05-13 12-55-50](https://github.com/user-attachments/assets/ab5e09f0-25f9-4d6e-b60a-43bdd3fd74ba)
 
